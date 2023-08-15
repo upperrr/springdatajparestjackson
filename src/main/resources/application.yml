@@ -1,0 +1,27 @@
+server:
+  port: 8095
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/singer?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 1234
+
+  mvc:
+    pathmatch:
+      matching-strategy : ant_path_matcher
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+
+
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+
