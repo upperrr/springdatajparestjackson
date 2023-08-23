@@ -39,14 +39,16 @@ public class SingersServiceImpl implements SingersService {
         return singersRepository.findById(id).orElse(null); //TODO orElse = Exception ?
     }
 
-    @Override
-    @Transactional
-    public boolean isAvailable(Integer id) {
-        return singersRepository.existsById(id);
-    }
 
     @Override
     public List<Singers> getAllSingers() {
         return singersRepository.findAll(); //FIXME
+    }
+
+
+    @Override
+    @Transactional
+    public boolean isAvailable(Integer id) {
+        return singersRepository.existsById(id);
     }
 }

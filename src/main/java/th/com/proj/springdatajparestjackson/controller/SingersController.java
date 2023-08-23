@@ -3,6 +3,7 @@ package th.com.proj.springdatajparestjackson.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import th.com.proj.springdatajparestjackson.entity.Singers;
@@ -62,21 +63,22 @@ public class SingersController {
 
 
     // Retrieve/Fetch
-    @GetMapping(value = "/getSingleSinger")
+    @GetMapping(value = "/getSingleSinger/{id}")
     public ResponseEntity getSingleSingerById(@PathVariable Integer id) { //single obj return --> <String> 뺌
         ResponseEntity responseEntity = null;
         if(singersService.isAvailable(id)) {
             Singers oneSinger =  singersService.getOneSinger(id);
-            responseEntity = new ResponseEntity<Singers>(oneSinger, HttpStatus.OK);
+            return responseEntity = new ResponseEntity<Singers>(oneSinger, HttpStatus.OK);
         } else {
             return new ResponseEntity("Record Not Found", HttpStatus.OK);
         }
-        return responseEntity;
+//        return responseEntity;
     }
 
 
     //Fetch operations
-    @GetMapping(value = "/getAllSingers")
+    //produding both values
+    @GetMapping(value = "/getAllSingers", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity getAllSingers() {
         ResponseEntity responseEntity = null;
         List<Singers> allSingers = singersService.getAllSingers();

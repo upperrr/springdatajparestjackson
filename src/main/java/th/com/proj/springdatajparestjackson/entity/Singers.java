@@ -4,11 +4,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Table
 @Entity
 @Data
 @NoArgsConstructor
+@XmlRootElement //Jackson dependency 주입 후 작성
 public class Singers {
     @Id
     @Column(name = "singerpos", length = 3)

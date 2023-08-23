@@ -12,6 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
 
+// http://localhost:8095/swagger-ui.html#
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
@@ -32,6 +33,7 @@ public class SwaggerConfiguration {
                     .build();
         }
 }
+
 
 
 
